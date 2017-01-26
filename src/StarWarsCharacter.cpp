@@ -7,10 +7,23 @@
 
 #include "StarWarsCharacter.h"
 
-StarWarsCharacter::StarWarsCharacter()
-  : m_pWeaponBehavior(0) {
+#include "WeaponBehavior.h"
+
+#include <string>
+#include <iostream>
+
+StarWarsCharacter::StarWarsCharacter(std::string name,
+		                             WeaponBehavior * weaponBehavior)
+  : m_pWeaponBehavior(weaponBehavior),
+    m_name(name)
+{
 }
 
 StarWarsCharacter::~StarWarsCharacter() {
 }
 
+void StarWarsCharacter::Fight()
+{
+	std::cout << m_name << ": ";
+	m_pWeaponBehavior->useWeapon();
+}

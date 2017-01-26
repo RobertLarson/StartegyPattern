@@ -14,10 +14,11 @@ class WeaponBehavior;
 
 class StarWarsCharacter {
 public:
-	StarWarsCharacter();
-	virtual ~StarWarsCharacter();
+	StarWarsCharacter(std::string name,
+			WeaponBehavior * weaponBehavior);
+    virtual ~StarWarsCharacter();
 
-	virtual void Fight() = 0;
+	virtual void Fight();
 
 	virtual void SetWeaponBehavior(WeaponBehavior * weaponBehavior)
 	{ m_pWeaponBehavior = weaponBehavior; }
